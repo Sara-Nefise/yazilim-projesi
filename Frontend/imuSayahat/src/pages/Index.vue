@@ -26,7 +26,7 @@
     <div class="container">
       <div class="q-pa-lg">
         <div class="q-mb-lg row q-gutter-lg">
-          <q-select @input="filterByCity" class="col-5 col-md-3" standout="bg-teal text-white" v-model="city" :options="cities" label="City" />
+          <q-select @filter="filterByCity" use-input class="col-5 col-md-3" standout="bg-teal text-white" v-model="city" :options="filterdCities" label="City" />
           <q-btn class="col-5 col-md-3" to="/newplace" color="teal" label="Add Place" />
 
         </div>
@@ -72,6 +72,8 @@ export default defineComponent({
     const city = ref('');
     const places = ref([]);
     const filterdPlaces = ref([]);
+    const filterdCities = ref([]);
+
     const getplaces = () => {
       axios({
         url:"http://localhost:4000/api/place/get",
@@ -92,11 +94,7 @@ export default defineComponent({
     const cities = computed(() => {
       return store.state.cities.cities;
     })
-
-    watch(city.value , (currentValue, oldValue) => {
-      console.log(city.value);
-      filterByCity();
-    })
+    filterdCities.value = cities.value;
 
     const search = () => {
       console.log(text.value);
@@ -114,13 +112,30 @@ export default defineComponent({
       }
     }
 
-    const filterByCity = (val) => {
-      console.log(val);
+    const filterByCity = (val ,update) => {
+      update(() => {
+        console.log(val);
       console.log(filterdPlaces.value);
+      if(val === ''){
+        filterdPlaces.value = places.value;
+        filterdCities.value = cities.value;
 
-      filterdPlaces.value = places.value.filter((place) => {
-        return place.cityName === city.value;
+        console.log(places.value)
+        console.log(filterdPlaces.value)
+      }
+      else{
+        const needle = val.toLowerCase()
+        filterdCities.value = cities.value.filter(
+          v => v.toLowerCase().indexOf(needle) > -1
+        )
+        
+        filterdPlaces.value = places.value.filter((place) => {
+          return place.cityName.toLowerCase().indexOf(needle) > -1
+        })
+      }
       })
+      
+      
     };
     
     return{
@@ -130,6 +145,7 @@ export default defineComponent({
       setId,
       cities,
       filterdPlaces,
+      filterdCities,
       filterByCity,
       search
     }
