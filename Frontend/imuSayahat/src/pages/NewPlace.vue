@@ -11,12 +11,12 @@
                     <div class="row q-gutter-md">
                         <q-input
                             class="col-12 col-md-5"
-                            v-model="name"
+                            v-model="placeName"
                             type="text"
                             label="name *"
                             maxlength="50"
                             lazy-rules
-                            :rules="[ val => val && val.length > 0 || 'Please type your name']"
+                            :rules="[ val => val && val.length > 0 || 'Please type place name']"
                         />
                         <q-input
                             class="col-12 col-md-5"
@@ -24,49 +24,51 @@
                             label="Phone number *"
                             type="number"
                             lazy-rules
-                            :rules="[ val => val && val.length > 0 || 'Please type your surname']"
+                            :rules="[ val => val && val.length > 0 || 'Please type place phone number']"
                         />
                         <q-input
                             class="col-12 col-md-5"
-                            v-model="email"
+                            v-model="placeEmail"
                             label="Email *"
                             type="email"
                             lazy-rules
-                            :rules="[ val => val && val.length > 0 || 'Please type your surname']"
+                            :rules="[ val => val && val.length > 0 || 'Please type place email']"
                         />
                         <q-input
                             class="col-12 col-md-5"
-                            v-model="ucret"
+                            v-model="entranceFee"
                             type="number"
-                            label="ucret *"
+                            label="Entrance fee *"
                             maxlength="50"
                             lazy-rules
-                            :rules="[ val => val && val.length > 0 || 'Please type your surname']"
+                            :rules="[ val => val && val.length > 0 || 'Please type place Entrance fee']"
                         />
                         <q-input
                             class="col-12 col-md-5"
                             v-model="openingTime"
-                            type="text"
+                            type="datetime"
                             label="opening time"
                             lazy-rules
-                            :rules="[ val => val && val.length > 0 || 'Please type your born date']"
+                            :rules="[ val => val && val.length > 0 || 'Please type place oppening time']"
                         />
                         <q-input
                             class="col-12 col-md-5"
                             v-model="closingTime"
                             label="closing time"
-                            type="text"
+                            type="datetime"
                             lazy-rules
-                            :rules="[ val => val && val.length === 11 || 'Please type your surname']"
+                            :rules="[ val => val && val.length > 0 || 'Please type place closing time']"
                         />
+                        <q-select class="col-11" standout="bg-teal text-white" v-model="PlaceCity" :options="options" label="City" />
+
                         <q-input
-                            class="col-12"
-                            v-model="adress"
+                            class="col-11"
+                            v-model="placeAdress"
                             type="textarea"
                             label="Adress *"
                             lazy-rules
                             maxlength="100"
-                            :rules="[ val => val && val.length > 0 || 'Please type tur description']"
+                            :rules="[ val => val && val.length > 0 || 'Please type place address']"
                         />
                     </div>
                 </div>
@@ -82,18 +84,18 @@
                         />
                         <q-input
                             class="col-12"
-                            v-model="desc"
+                            v-model="placeDescription"
                             type="textarea"
                             label="Description *"
                             lazy-rules
                             maxlength="100"
-                            :rules="[ val => val && val.length > 0 || 'Please type tur description']"
+                            :rules="[ val => val && val.length > 0 || 'Please type place description']"
                         />
                     </div>
                 </div>
             </div>
             <div class="q-mx-lg">
-                <q-btn label="Submit" type="submit" color="primary" />
+                <q-btn label="Submit" type="submit" color="green" />
             </div>
             </q-form>
 
@@ -110,49 +112,51 @@ export default {
     setup() {
         const $q = useQuasar()
 
-        const name = ref(null);
-        const ucret = ref(null);
+        const placeName = ref(null);
+        const entranceFee = ref(null);
         const imageUrl = ref(null);
-        const email = ref(null);
-        const desc = ref(null);
+        const placeEmail = ref(null);
+        const placeDescription = ref(null);
         const phoneNumber = ref(null);
-
+        const PlaceCity = ref(null);
         const openingTime = ref(null);
         const closingTime = ref(null);
-        const adress = ref(null);
+        const placeAdress = ref(null);
         
         const onSubmit = () => {
             axios({
-                url:"http://localhost:58854/api/payment",
+                url:"http://localhost:4000/api/place/post",
                 method: 'post', 
                 headers: {},
                 data:{
-                    id: 3,
-                    name,
-                    ucret,
+                    placeName,
+                    entranceFee,
                     imageUrl,
-                    email,
-                    desc,
+                    placeEmail,
+                    placeDescription,
                     phoneNumber,
-                    adress,
+                    placeAdress,
                     openingTime,
-                    closingTime
+                    closingTime,
+                    PlaceCity
                 }
             });
         };
 
         return{
-            name,
-            ucret,
+            placeName,
+            entranceFee,
             imageUrl,
-            email,
-            desc,
+            placeEmail,
+            placeDescription,
             phoneNumber,
-
+            placeAdress,
             openingTime,
             closingTime,
-            adress,
-
+            PlaceCity,
+            options: [
+                'Google', 'Facebook', 'Twitter', 'Apple', 'Oracle'
+            ],
             onSubmit,
         }
     },
