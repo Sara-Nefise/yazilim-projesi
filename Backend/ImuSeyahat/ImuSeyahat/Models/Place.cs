@@ -35,7 +35,7 @@ namespace ImuSeyahat.Models
         [Required]
         public double EntranceFee { get; set; }
 
-        [Required, StringLength(maximumLength: 200, ErrorMessage = "The Place Description {0} should have {1} maximum characters")]
+        [Required, StringLength(maximumLength: 1000, ErrorMessage = "The Place Description {0} should have {1} maximum characters")]
         public string PlaceDescription { get; set; }
 
         [Required, DataType(DataType.ImageUrl)]
