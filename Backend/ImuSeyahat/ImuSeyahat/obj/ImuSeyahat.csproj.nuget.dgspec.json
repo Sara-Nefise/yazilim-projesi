@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\yazilim-projesi\\Backend\\ImuSeyahat\\ImuSeyahat\\ImuSeyahat.csproj": {}
+    "C:\\Users\\betul\\Downloads\\yazilim-projesi\\Backend\\ImuSeyahat\\ImuSeyahat\\ImuSeyahat.csproj": {}
   },
   "projects": {
-    "E:\\yazilim-projesi\\Backend\\ImuSeyahat\\ImuSeyahat\\ImuSeyahat.csproj": {
+    "C:\\Users\\betul\\Downloads\\yazilim-projesi\\Backend\\ImuSeyahat\\ImuSeyahat\\ImuSeyahat.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\yazilim-projesi\\Backend\\ImuSeyahat\\ImuSeyahat\\ImuSeyahat.csproj",
+        "projectUniqueName": "C:\\Users\\betul\\Downloads\\yazilim-projesi\\Backend\\ImuSeyahat\\ImuSeyahat\\ImuSeyahat.csproj",
         "projectName": "ImuSeyahat",
-        "projectPath": "E:\\yazilim-projesi\\Backend\\ImuSeyahat\\ImuSeyahat\\ImuSeyahat.csproj",
-        "packagesPath": "C:\\Users\\abdulbari\\.nuget\\packages\\",
-        "outputPath": "E:\\yazilim-projesi\\Backend\\ImuSeyahat\\ImuSeyahat\\obj\\",
+        "projectPath": "C:\\Users\\betul\\Downloads\\yazilim-projesi\\Backend\\ImuSeyahat\\ImuSeyahat\\ImuSeyahat.csproj",
+        "packagesPath": "C:\\Users\\betul\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\betul\\Downloads\\yazilim-projesi\\Backend\\ImuSeyahat\\ImuSeyahat\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\abdulbari\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\betul\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -29,6 +26,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -40,6 +38,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -52,6 +51,12 @@
               "version": "[3.1.1, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[3.1.1, )"
             }
@@ -74,7 +79,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.415\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }
