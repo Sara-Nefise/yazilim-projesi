@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ImuSeyahat.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20211211114433_initialCreate")]
+    [Migration("20211217105301_initialCreate")]
     partial class initialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -58,8 +58,7 @@ namespace ImuSeyahat.Migrations
 
                     b.Property<string>("PlaceDescription")
                         .IsRequired()
-                        .HasColumnType("nvarchar(200)")
-                        .HasMaxLength(200);
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PlaceEmail")
                         .IsRequired()

@@ -37,7 +37,7 @@
             class="col-sm-12 col-md-4 col-lg-3 q-mb-md"
           >
             <q-card>
-              <q-img src="https://cdn.quasar.dev/img/parallax2.jpg">
+              <q-img :src="place.imageURL" style="max-height: 150px">
                 <div class="absolute-bottom text-subtitle2 text-center">
                   {{place.placeName}}
                 </div>

@@ -20,7 +20,7 @@ namespace ImuSeyahat.Migrations
                     OpeningTime = table.Column<string>(nullable: false),
                     ClosingTime = table.Column<string>(nullable: false),
                     EntranceFee = table.Column<double>(nullable: false),
-                    PlaceDescription = table.Column<string>(maxLength: 200, nullable: false),
+                    PlaceDescription = table.Column<string>(nullable: false),
                     ImageURL = table.Column<string>(nullable: false)
                 },
                 constraints: table =>

@@ -11,7 +11,7 @@ namespace ImuSeyahat.DbHelpers
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer("Data Source=DESKTOP-5RNF8P0;Database=test;User ID=DESKTOP-5RNF8P0\\abdulbari; Initial Catalog=Test;Integrated Security=true");
+            optionsBuilder.UseSqlServer("Data Source=DESKTOP-5RNF8P0;Database=imuSeyahat;User ID=DESKTOP-5RNF8P0\\abdulbari; Initial Catalog=imuSeyahat;Integrated Security=true");
         }
         public DbSet<Place> places { get; set; }
     }

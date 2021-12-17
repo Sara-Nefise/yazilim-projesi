@@ -7,9 +7,9 @@
             <div class="col-xs-12 col-md-8">
                 <div class="q-px-md q-mb-xl">
                     <q-img
-                        src="https://cdn.quasar.dev/img/parallax2.jpg"
+                        :src="placeInfo.imageURL"
                         spinner-color="white"
-                        style="height: 250px; max-width: 100%"
+                        style="max-height: 250px; max-width: 100%"
                         img-class="place-image"
                         class="rounded-borders"
                     />

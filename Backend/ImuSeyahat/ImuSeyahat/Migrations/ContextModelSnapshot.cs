@@ -56,8 +56,7 @@ namespace ImuSeyahat.Migrations
 
                     b.Property<string>("PlaceDescription")
                         .IsRequired()
-                        .HasColumnType("nvarchar(200)")
-                        .HasMaxLength(200);
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PlaceEmail")
                         .IsRequired()
